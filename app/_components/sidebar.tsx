@@ -1,13 +1,36 @@
+"use client";
+
+import Link from "next/link";
+import { Button } from "./ui/button";
+import { LayoutGridIcon, PackageIcon, ShoppingBasketIcon } from "lucide-react"
+import { usePathname } from "next/navigation";
+
 const Sidebar = () => {
+  const pathName = usePathname();
   return (
     <div className="w-64 bg-white">
       <div className="px-8 py-6">
         <h1 className="text-2xl font-bold">STOCKLY</h1>
       </div>
       <div className="flex flex-col gap-2 p-2">
-        <button className="px-6 py-3">Dashboard</button>
-        <button className="px-6 py-3">Produtos</button>
-        <button className="px-6 py-3">Vendas</button>
+        <Button className="justify-start gap-2" variant={pathName == "/" ? "secondary" : "ghost"} asChild>
+          <Link href="/">
+            <LayoutGridIcon size={20} />
+            Dashboard
+          </Link>
+        </Button>
+        <Button className="justify-start gap-2" variant={pathName == "/products" ? "secondary" : "ghost"} asChild>
+          <Link href="/products">
+            <PackageIcon size={20}/>
+            Produtos
+          </Link>
+        </Button>
+        <Button className="justify-start gap-2" variant={pathName == "/sales" ? "secondary" : "ghost"} asChild>
+          <Link href="/sales">
+            <ShoppingBasketIcon size={20}/>
+            Vendas
+          </Link>
+        </Button>
       </div>
     </div>
   );
