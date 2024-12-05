@@ -1,7 +1,5 @@
 "use client";
 
-import Link from "next/link";
-import { Button } from "./ui/button";
 import { LayoutGridIcon, PackageIcon, ShoppingBasketIcon } from "lucide-react"
 import SideBarButton from "./sidebar-button";
 
